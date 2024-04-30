@@ -10,8 +10,6 @@ O Focus Timer é um aplicativo de gerenciamento de tempo que ajuda você a se co
 - Opção de ativar e desativar música: Permita que o usuário escolha se deseja ou não reproduzir música durante as sessões de trabalho e intervalo.
 - Modo Claro e Escuro: Alternância entre os modos claro e escuro para proporcionar uma experiência visual confortável em diferentes ambientes e preferências de usuário.
 
-
 ## Hospedagem
 
-Para usar o aplicativo, basta acessar o [link](https://aleksanderromero.github.io/pomodoro-project/) hospedado no GitHub Pages. 
-
+Para usar o aplicativo, basta acessar o [link](https://aleksanderromero.github.io/pomodoro-project/) hospedado no GitHub Pages.

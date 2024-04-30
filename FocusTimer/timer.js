@@ -5,39 +5,37 @@ import { reset } from "./actions.js";
 import { kitchenTimer } from "./sounds.js";
 
 export function countdown() {
+  clearTimeout(state.countdownId);
 
-    clearTimeout(state.countdownId);
+  if (!state.isRunning) {
+    return;
+  }
 
-    if (!state.isRunning) {
-        return
-    };
+  let minutes = Number(el.minutes.textContent);
+  let seconds = Number(el.seconds.textContent);
 
-    let minutes = Number(el.minutes.textContent);
-    let seconds = Number(el.seconds.textContent);
+  seconds--;
 
-    seconds--;
+  if (seconds < 0) {
+    seconds = 59;
+    minutes--;
+  }
 
-    if (seconds < 0) {
-        seconds = 59;
-        minutes--;
-    };
+  if (minutes < 0) {
+    reset();
+    kitchenTimer.play();
+    return;
+  }
 
-    if (minutes < 0) {
-        reset();
-        kitchenTimer.play();
-        return;
-    };
+  updateDisplay(minutes, seconds);
 
-    updateDisplay(minutes, seconds);
-
-    state.countdownId = setTimeout(() => countdown(), 1000);
-};
+  state.countdownId = setTimeout(() => countdown(), 1000);
+}
 
 export function updateDisplay(minutes, seconds) {
-    minutes = minutes ?? state.minutes;
-    seconds = seconds ?? state.seconds;
+  minutes = minutes ?? state.minutes;
+  seconds = seconds ?? state.seconds;
 
-    el.minutes.textContent = String(minutes).padStart(2, "0");
-    el.seconds.textContent = String(seconds).padStart(2, "0");
-};
-
+  el.minutes.textContent = String(minutes).padStart(2, "0");
+  el.seconds.textContent = String(seconds).padStart(2, "0");
+}
